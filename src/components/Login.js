@@ -5,7 +5,7 @@ import styles from '../css/logincss.module.css'
 
 const Login = (props) => {
 
-    const host = "http://localhost:3001";
+    const host = "https://adityas-inotebook.herokuapp.com";
     const [credentials, setCredentials] = useState({email:"",password:""});
     
     let navigate = useNavigate();
