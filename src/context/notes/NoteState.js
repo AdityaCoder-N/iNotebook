@@ -4,7 +4,7 @@ import noteContext from './noteContext'
 
 const NoteState = (props) => {
 
-  const host = "http://localhost:3001";
+  const host = "https://adityas-inotebook.herokuapp.com";
 
     const notesInitial = []
     
@@ -69,6 +69,8 @@ const NoteState = (props) => {
           
         } 
       });
+      const json = await response.json();
+      console.log(json);
       
       // Deleting from client
       const newNotes = notes.filter((note)=>{ return note._id!==id})
@@ -95,8 +97,8 @@ const NoteState = (props) => {
       });
      
       
-      // const json= response.json();
-    
+       const json= await response.json();
+      console.log(json);
       // logic to edit in client
       let newNotes = JSON.parse(JSON.stringify(notes));
       for(let i=0;i<newNotes.length;i++)
