@@ -32,11 +32,11 @@ const AddNote = (props) => {
             <form>
                 <div className="mb-3">
                     <label htmlFor="title" className={`form-label ${styles.label}`}>Title</label>
-                    <textarea style={{overflow:"hidden"}} type="text" value={note.title} className={styles.inputBox} id="title" name="title" aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
+                    <input  type="text" value={note.title} className={styles.inputBox} id="title" name="title" aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className={`form-label ${styles.label}`}>Description</label>
-                    <input type="text" value={note.description} className={styles.inputBox} id="description" name="description" onChange={onChange} minLength={5} required/>
+                    <textarea type="text" style={{overflow:"hidden"}} value={note.description} className={styles.inputBox} id="description" name="description" onChange={onChange} minLength={5} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="tag" className={`form-label ${styles.label}`}>Tag</label>
