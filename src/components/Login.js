@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Link, useNavigate } from "react-router-dom";
-
+import Spinner from './Spinner'
 import styles from '../css/logincss.module.css'
 
 const Login = (props) => {
@@ -8,6 +8,8 @@ const Login = (props) => {
     const host = "https://adityas-inotebook.herokuapp.com";
     const [credentials, setCredentials] = useState({email:"",password:""});
     
+    const [loading,setLoading] = useState(false);
+
     let navigate = useNavigate();
 
     const onChange =(e)=>{
@@ -16,6 +18,7 @@ const Login = (props) => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
+        setLoading(true);
 
         let url = `${host}/api/auth/login`;
 
@@ -27,7 +30,8 @@ const Login = (props) => {
             },
             body: JSON.stringify({email : credentials.email, password : credentials.password})
         });
-
+        
+        setLoading(false);
         const json = await response.json();
         console.log(json);
         
@@ -44,6 +48,8 @@ const Login = (props) => {
     }
 
     return (
+        <>
+        
         <div className={styles.main_div}>
         <div className={styles.box}>
             <h1 className={styles.heading} >Login</h1>
@@ -58,12 +64,15 @@ const Login = (props) => {
                 </div>
                 
                 <button type="submit" className={styles.loginbtn} >Login</button>
+                {loading && <Spinner/>}
 
                 <p style={{color:"white",marginTop:"15px"}} >Do not have an account? Create one!</p>
                 <Link className='btn btn-link' type="button" to="/signup" style={{color:"white",padding:"0px 0px"}}>SignUp</Link>
             </form>
         </div>
         </div>
+        
+        </>
     )
 }
 

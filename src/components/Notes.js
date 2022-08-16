@@ -4,7 +4,7 @@ import AddNote from './AddNote';
 import NoteItem from './NoteItem';
 import { useNavigate } from "react-router-dom";
 import styles from "../css/notescss.module.css"
-
+import '../css/mobile.css';
 function Notes(props) {
   const context = useContext(noteContext)
   const { notes, getNotes ,editNote} = context;
@@ -85,7 +85,7 @@ function Notes(props) {
       <div style={{display:"flex",alignItems:"center",justifyContent: "center"}}>
 
       
-      <div className='row container' style={{width:"60%",margin:"0 0",padding:"0 0",marginTop:"10px",color:"white"}}>
+      <div className='row container main' style={{margin:"0 0",padding:"0 0",marginTop:"10px",color:"white"}}>
         <h1 className='my-3'>Your Notes</h1>
         <div className = 'container'>
           {notes.length===0 && "No Notes to display"}

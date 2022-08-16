@@ -3,6 +3,8 @@ import noteContext from '../context/notes/noteContext'
 
 import styles from "../css/notescss.module.css"
 
+import '../css/mobile.css';
+
 const AddNote = (props) => {
 
     const context = useContext(noteContext)
@@ -24,13 +26,13 @@ const AddNote = (props) => {
     }
 
     return (
-        <div className="container mt-4" style={{width:"60%",color:"white"}} >
+        <div className="container mt-4 main" style={{color:"white"}} >
 
             <h1 className='pt-3'>Add a Note</h1>
             <form>
                 <div className="mb-3">
                     <label htmlFor="title" className={`form-label ${styles.label}`}>Title</label>
-                    <input type="text" value={note.title} className={styles.inputBox} id="title" name="title" aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
+                    <textarea style={{overflow:"hidden"}} type="text" value={note.title} className={styles.inputBox} id="title" name="title" aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className={`form-label ${styles.label}`}>Description</label>

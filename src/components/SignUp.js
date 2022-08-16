@@ -2,12 +2,15 @@ import React,{useState} from 'react'
 import { useNavigate,Link } from 'react-router-dom';
 
 import styles from '../css/logincss.module.css'
+import Spinner from './Spinner';
 
 const SignUp = (props) => {
 
     const host = "https://adityas-inotebook.herokuapp.com";
     const [credentials, setCredentials] = useState({name:"",email:"",password:"",cpassword:""});
     
+    const [loading,setLoading] = useState(false);
+
     let navigate = useNavigate();
 
     const onChange =(e)=>{
@@ -17,6 +20,7 @@ const SignUp = (props) => {
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
+        setLoading(true);
         if(credentials.password!==credentials.cpassword){
             alert("Confirm Password Doesnt Match");
             return;
@@ -33,6 +37,7 @@ const SignUp = (props) => {
             body: JSON.stringify({name : credentials.name ,email : credentials.email, password : credentials.password})
         });
 
+        setLoading(false);
         const json = await response.json();
         console.log(json);
 
@@ -70,6 +75,8 @@ const SignUp = (props) => {
                     <input type="password"  id="cpassword" onChange={onChange} name="cpassword" value={credentials.cpassword} required minLength={5}/>
                 </div>
                 <button type="submit" className={styles.loginbtn}>Create Account</button>
+
+                {loading && <Spinner/>}
 
                 <p style={{color:"white",marginTop:"15px"}} >Already have an account?</p>
                 <Link className='btn-link' type="button" to="/login" style={{color:"white"}}>Login</Link>
