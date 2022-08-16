@@ -4,7 +4,7 @@ import noteContext from './noteContext'
 
 const NoteState = (props) => {
 
-  const host = " https://fast-atoll-05903.herokuapp.com/https://adityas-inotebook.herokuapp.com";
+  const host = "https://adityas-inotebook.herokuapp.com";
 
     const notesInitial = []
     
