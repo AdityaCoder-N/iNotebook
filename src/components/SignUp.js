@@ -6,7 +6,7 @@ import Spinner from './Spinner';
 
 const SignUp = (props) => {
 
-    const host = "https://adityas-inotebook.herokuapp.com";
+    const host = "https://inotebook-backend-c8jk.onrender.com";
     const [credentials, setCredentials] = useState({name:"",email:"",password:"",cpassword:""});
     
     const [loading,setLoading] = useState(false);

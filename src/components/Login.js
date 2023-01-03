@@ -5,7 +5,7 @@ import styles from '../css/logincss.module.css'
 
 const Login = (props) => {
 
-    const host = "https://adityas-inotebook.herokuapp.com";
+    const host = "https://inotebook-backend-c8jk.onrender.com";
     const [credentials, setCredentials] = useState({email:"",password:""});
     
     const [loading,setLoading] = useState(false);
